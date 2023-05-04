@@ -9,7 +9,8 @@
   "deployment": {
     "flywayConfFiles": [
       "./flyway.conf"
-    ]
+    ],
+    "generateUndoScripts": true
   },
   "schemas": []
 }

@@ -2,7 +2,8 @@ CREATE TABLE [dbo].[WasteTypeXProcess]
 (
 [wastetypexprocessid] [int] NOT NULL IDENTITY(1, 1),
 [processid] [int] NOT NULL,
-[wastetypeid] [int] NOT NULL
+[wastetypeid] [int] NOT NULL,
+[enabled] [binary] (1) NOT NULL
 )
 GO
 ALTER TABLE [dbo].[WasteTypeXProcess] ADD CONSTRAINT [PK_WasteTypeXProcess] PRIMARY KEY CLUSTERED ([wastetypexprocessid])
