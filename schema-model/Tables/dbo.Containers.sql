@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[Containers]
 (
-[containerid] [smallint] NOT NULL IDENTITY(1, 1),
+[containerid] [int] NOT NULL IDENTITY(1, 1),
 [name] [nchar] (20) NOT NULL,
 [description] [nchar] (80) NOT NULL,
 [capacity] [decimal] (6, 2) NOT NULL,

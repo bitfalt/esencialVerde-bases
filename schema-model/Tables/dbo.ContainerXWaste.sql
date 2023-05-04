@@ -2,7 +2,7 @@ CREATE TABLE [dbo].[ContainerXWaste]
 (
 [contxwasteid] [int] NOT NULL IDENTITY(1, 1),
 [wastetypeid] [int] NOT NULL,
-[containerid] [smallint] NOT NULL
+[containerid] [int] NOT NULL
 )
 GO
 ALTER TABLE [dbo].[ContainerXWaste] ADD CONSTRAINT [PK_ContainerXWaste] PRIMARY KEY CLUSTERED ([contxwasteid])
