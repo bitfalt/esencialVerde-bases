@@ -4,7 +4,7 @@ CREATE TABLE [dbo].[ProcessesXCountry]
 [countryid] [int] NOT NULL,
 [stateid] [int] NULL,
 [priceXkg] [money] NOT NULL,
-[enabled] [binary] (1) NOT NULL
+[enabled] [binary] (1) NOT NULL CONSTRAINT [DF_ProcessesXCountry_enabled] DEFAULT ((1))
 )
 GO
 ALTER TABLE [dbo].[ProcessesXCountry] ADD CONSTRAINT [FK_ProcessesXCountry_Country] FOREIGN KEY ([countryid]) REFERENCES [dbo].[Country] ([countryid])
