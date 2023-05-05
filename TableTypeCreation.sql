@@ -1,0 +1,13 @@
+CREATE TYPE TAddressData as TABLE (
+countryid INT NOT NULL,
+stateid INT NOT NULL,
+city VARCHAR(30) NOT NULL,
+street VARCHAR(80) NOT NULL,
+postalCode VARCHAR(20) NOT NULL
+);
+GO
+
+CREATE TYPE TProducerData as TABLE (
+name VARCHAR(30) NOT NULL
+);
+GO
