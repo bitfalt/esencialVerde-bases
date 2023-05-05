@@ -3,7 +3,7 @@ CREATE TABLE [dbo].[ContactValues]
 [contactvalueid] [int] NOT NULL IDENTITY(1, 1),
 [value] [nchar] (30) NOT NULL,
 [posttime] [datetime] NOT NULL CONSTRAINT [DF_ContactValues_posttime] DEFAULT (getdate()),
-[enabled] [binary] (1) NOT NULL,
+[enabled] [binary] (1) NOT NULL CONSTRAINT [DF_ContactValues_enabled] DEFAULT ((1)),
 [contacttypeid] [int] NOT NULL
 )
 GO
