@@ -1,8 +1,7 @@
 CREATE PROCEDURE [dbo].[insertAmountBalanceHistory]
-	@contract INT,
-    @actorType INT,
-    @actorName VARCHAR(70),
-    @percentage DECIMAL(5,2)
+	@transactiontype INT,
+    @amount DECIMAL (18,2),
+	@balance DECIMAL (18,2)
 AS
 BEGIN
 
@@ -13,11 +12,7 @@ BEGIN
 	DECLARE @InicieTransaccion BIT
 
 	-- declaracion de otras variables
-	DECLARE @termid INT;
 	-- operaciones de select que no tengan que ser bloqueadas
-	SELECT @termid = termid
-	FROM Terms
-	WHERE name = @term;
 	-- tratar de hacer todo lo posible antes de q inice la transaccion
 
 	SET @InicieTransaccion = 0
@@ -30,16 +25,13 @@ BEGIN
 	BEGIN TRY
 		SET @CustomError = 2001
 
+		-- Al agregar una nueva fila en balanceHistory, se puede producir un phantom read
+		-- cuando se intenta calcular el total y el promedio
+
+
 		-- put your code here
-        UPDATE Contracts
-        SET status = 'Terminated',
-            enddate = GETDATE()
-        WHERE contractid = @contract
-
-
-        UPDATE ContractTerms
-        SET value = @newValue
-        WHERE termid = @termid AND contractid = @contract
+		INSERT INTO BalanceHistory (transactiontype, amount, balance)
+		VALUES (@transactiontype, @amount, @balance);
 
 
 		IF @InicieTransaccion=1 BEGIN

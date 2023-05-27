@@ -36,6 +36,9 @@ BEGIN
 		-- read, ya que, se agrego una nueva columna mientras se hacia la transaccion
 
 		-- put your code here
+
+		WAITFOR DELAY '00:00:05'
+
 		SELECT @total, COUNT(BalanceHistory.balancehistoryid) AS totalMovements,
 		(@total / COUNT(BalanceHistory.balancehistoryid) * 1.0) AS Average
 		FROM BalanceHistory
